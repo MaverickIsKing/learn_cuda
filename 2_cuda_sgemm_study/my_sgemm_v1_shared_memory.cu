@@ -84,7 +84,7 @@ __global__ void cuda_sgemm(float* A_ptr, float* B_ptr, float* C_ptr, int M, int 
 }
 
 int main()
-{
+{   // this version not the best practice because shared memory is limited
     const int m = 128;
     const int n = 256;
     const int k = 64;

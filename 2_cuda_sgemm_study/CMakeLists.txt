@@ -21,3 +21,27 @@ target_link_libraries(my_sgemm_v3_more_work_per_thread PRIVATE CUDA::cudart ${CU
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
     target_compile_options(my_sgemm_v3_more_work_per_thread PRIVATE $<$<COMPILE_LANGUAGE:CUDA>:-G>)
 endif()
+
+add_executable(my_sgemm_v4_float4 my_sgemm_v4_float4.cu)
+target_link_libraries(my_sgemm_v4_float4 PRIVATE CUDA::cudart ${CUDA_cublas_LIBRARY})
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    target_compile_options(my_sgemm_v4_float4 PRIVATE $<$<COMPILE_LANGUAGE:CUDA>:-G>)
+endif()
+
+add_executable(my_sgemm_v5_register_outer_product my_sgemm_v5_register_outer_product.cu)
+target_link_libraries(my_sgemm_v5_register_outer_product PRIVATE CUDA::cudart ${CUDA_cublas_LIBRARY})
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    target_compile_options(my_sgemm_v5_register_outer_product PRIVATE $<$<COMPILE_LANGUAGE:CUDA>:-G>)
+endif()
+
+add_executable(my_sgemm_v6_register_outer_product_float4 my_sgemm_v6_register_outer_product_float4.cu)
+target_link_libraries(my_sgemm_v6_register_outer_product_float4 PRIVATE CUDA::cudart ${CUDA_cublas_LIBRARY})
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    target_compile_options(my_sgemm_v6_register_outer_product_float4 PRIVATE $<$<COMPILE_LANGUAGE:CUDA>:-G>)
+endif()
+
+add_executable(my_sgemm_v7_smem_transpose_A my_sgemm_v7_smem_transpose_A.cu)
+target_link_libraries(my_sgemm_v7_smem_transpose_A PRIVATE CUDA::cudart ${CUDA_cublas_LIBRARY})
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    target_compile_options(my_sgemm_v7_smem_transpose_A PRIVATE $<$<COMPILE_LANGUAGE:CUDA>:-G>)
+endif()
